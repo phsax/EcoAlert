@@ -1,0 +1,539 @@
+/* ---padrão--- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: cocoThin;
+    src: url('../fonts/Cocogoose-Pro-Thin-trial.ttf');
+}
+
+@font-face {
+    font-family: cocoRegular;
+    src: url('../fonts/Cocogoose-Pro-Light-trial.ttf');
+}
+
+@font-face {
+    font-family: cocoDark;
+    src: url('../fonts/Cocogoose-Pro-Darkmode-trial.ttf');
+}
+
+:root {
+    --cor-fundo: #E5F4E7;
+    --cor-contraste: #618b68;
+    --cor-fundo-escura: #b6c4b8;
+    --cor-pastel: #C8E0D2;
+    --cor-verde-cinza: #8AAE92;
+
+    --tamanho-card-width: 20vw;
+    --tamanho-card-height: 20vw;
+    --espaco-entre-cards: 2vw;
+    --max-largura-container: 90vw;
+    --max-largura-cartao: 400px;
+    --max-altura-cartao: 400px;
+}
+
+
+body {
+    background-color: var(--cor-fundo);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* ---padrão--- */
+
+header {
+    background-color: var(--cor-contraste);
+    width: 100%;
+    padding: 32px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--cor-fundo);
+    font-family: cocoDark;
+}
+
+header h1 {
+    margin-left: 20px;
+}
+
+header a{
+    text-decoration: none;
+    color:var(--cor-fundo);
+}
+
+header .right{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header .perfil {
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    transition: .3s;
+    cursor: pointer;
+}
+
+header .perfil:hover{
+    color: var(--cor-fundo-escura);
+}
+
+header .perfil i {
+    font-size: 35px;
+}
+
+main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 7vh;
+    padding-top: 5vh;
+    padding-bottom: 10vh;
+}
+
+main h3 {
+    font-family: cocoDark;
+    border-bottom: 2px solid var(--cor-contraste);
+    padding-bottom: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+main .denuncias-rec {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5vh;
+    width: 100%;
+    max-width: var(--max-largura-container);
+}
+
+main .denuncias-rec h2 {
+    font-family: cocoRegular;
+}
+
+main .denuncias-line {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--espaco-entre-cards);
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 0 var(--espaco-entre-cards);
+}
+
+main .denuncia-box {
+    display: flex;
+    flex-direction: column;
+    max-width: var(--max-largura-cartao);
+    align-items: center;
+    justify-content: center;
+}
+
+/* ---card denuncias--- */
+
+.denuncia-card,
+.noticia-card {
+    position: relative;
+    width: calc(var(--tamanho-card-width) - (var(--espaco-entre-cards) / 2));
+    height: var(--tamanho-card-height);
+    max-width: var(--max-largura-cartao);
+    max-height: var(--max-altura-cartao);
+    background: var(--cor-contraste);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.denuncia-card::before,
+.denuncia-card::after,
+.noticia-card::before,
+.noticia-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(315deg, var(--cor-contraste), var(--cor-fundo-escura));
+}
+
+.denuncia-card::after,
+.noticia-card::after {
+    filter: blur(30px);
+}
+
+.denuncia-card b,
+.noticia-card b{
+    position: absolute;
+    inset: 6px;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 2;
+}
+
+.denuncia-card img,
+.noticia-card img {
+    align-self: center;
+    justify-self: center;
+    position: absolute;
+    z-index: 3;
+    width: 94%;
+    height: 94%;
+    object-fit: cover;
+    inset: 6px;
+    opacity: 0.7;
+    transition: 0.5s;
+    border-radius: 2px;
+}
+
+.denuncia-card:hover img,
+.noticia-card:hover img {
+    opacity: 0.9;
+}
+
+.denuncia-card .content
+.noticia-card .content {
+    position: absolute;
+    z-index: 3;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: scale(0);
+    transition: 0.5s;
+    background: rgba(0, 0, 0, 0.45);
+    padding: 5px;
+    border-radius: 5px;
+    backdrop-filter: blur(2px);
+}
+
+.denuncia-card:hover .content,
+.noticia-card:hover .content {
+    transform: scale(1);
+    bottom: 25px;
+}
+
+.content .title {
+    position: relative;
+    color: var(--cor-fundo);
+    font-weight: 500;
+    line-height: 1em;
+    font-size: 1em;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-align: center;
+    font-family: cocoThin;
+}
+
+.content .sci {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 5px;
+}
+
+.sci li {
+    list-style: none;
+}
+
+.sci li i {
+    position: relative;
+    text-decoration: none;
+    color: var(--cor-verde-cinza);
+    background: rgba(0, 0, 0, 0.7);
+    fill: currentColor;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    transition: 0.5s;
+}
+
+.sci li a:hover {
+    fill: currentColor;
+    color: rgba(255, 255, 255, 1);
+}
+
+.card-title-container {
+    bottom: 0;
+    width: 100%;
+    height: 20%;
+    background: var(--cor-fundo-escura);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 4;
+    padding: 5px;
+}
+
+.card-title {
+    font-family: cocoRegular;
+    font-size: 1.2em;
+    color: var(--cor-fundo);
+    text-align: center;
+    padding: 5px;
+}
+
+.card-subtitle {
+    width: 100%;
+    font-family: cocoThin;
+    font-size: .9em;
+    color: var(--cor-fundo);
+    text-align: start;
+    padding: 5px;
+}
+
+/* --- Botão fixo --- */
+.new-denuncia-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background-color: var(--cor-contraste);
+    color: var(--cor-fundo);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    z-index: 1000;
+    transition: transform 0.5s ease;
+}
+
+.new-denuncia-btn:hover {
+    background-color: var(--cor-verde-cinza);
+    transform: rotate(90deg);
+}
+
+/* ---backbutton--- */
+
+.back-button {
+    position: absolute;
+    top: 140px;
+    left: 30px;
+}
+
+.btn-back {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 120px;
+    height: 60px;
+    border: none;
+    padding: 0px 20px;
+    background-color: var(--cor-verde-cinza);
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 5px 5px 0px var(--cor-contraste);
+    transition: .4s;
+}
+
+.back-button i {
+    font-size: 30px;
+    position: absolute;
+    right: 0;
+    margin-right: 20px;
+    fill: white;
+    transition: .4s;
+}
+
+.btn-back:hover p {
+    color: transparent;
+    transition: .4s;
+}
+
+.btn-back:hover i {
+    right: 43%;
+    margin: 0;
+    padding: 0;
+    border: none;
+    transition: .4s;
+}
+
+.btn-back:active {
+    transform: translate(3px, 3px);
+    transition: .4s;
+    box-shadow: 2px 2px 0px var(--city-sign-color-back);
+}
+
+/* ---backbutton--- */
+
+/* select-bar */
+
+/* From Uiverse.io by SelfMadeSystem */
+.outline {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.rect {
+    stroke-dashoffset: 5;
+    stroke-dasharray: 0 0 10 40 10 40;
+    transition: 0.5s;
+    stroke: #8AAE92;
+}
+
+.nav {
+    position: relative;
+    width: 400px;
+    height: 60px;
+}
+
+.container-bar:hover .outline .rect {
+    transition: 999999s;
+    stroke-dashoffset: 1;
+    stroke-dasharray: 0;
+}
+
+.container-bar {
+    position: absolute;
+    inset: 0;
+    background: var(--cor-contraste);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0.5em;
+}
+
+.container-bar .selecionado {
+    background: #fff3;
+}
+
+.btn-bar {
+    padding: 0.5em 1.5em;
+    color: var(--cor-fundo);
+    cursor: pointer;
+    transition: 0.1s;
+    font-family: cocoThin;
+}
+
+.btn-bar:hover {
+    background: #fff3;
+}
+
+.btn-bar:nth-child(1):hover~svg .rect {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 0 4.6 12 60.3 12 10.7;
+}
+
+.btn-bar:nth-child(2):hover~svg .rect {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 0 24.7 14 16.3 14 31.6;
+}
+
+.btn-bar:hover~.outline .rect {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 0 0 10 40 10 40;
+    transition: 0.5s !important;
+}
+
+/* select-bar */
+
+
+/* home.css (Adicionar ao final) */
+
+/* --- Modal para Moderação Admin --- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Fundo semi-transparente */
+}
+
+.modal-content {
+    background-color: var(--cor-fundo);
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid var(--cor-verde-cinza);
+    width: 90%;
+    max-width: 800px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Garante que os cards no modal fiquem organizados */
+#denuncias-pendentes-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--espaco-entre-cards);
+    padding: 20px 0;
+    justify-content: center;
+}
+
+/* Ações de Moderação no Card */
+.moderacao-actions {
+    margin-top: 10px;
+}
+
+.moderacao-actions button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-right: 10px;
+    transition: background-color 0.3s;
+}
+
+.moderacao-actions .btn-aprovar {
+    background-color: var(--cor-contraste);
+    /* Verde */
+    color: white;
+}
+
+.moderacao-actions .btn-rejeitar {
+    background-color: #d9534f;
+    /* Vermelho */
+    color: white;
+}

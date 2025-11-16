@@ -1,0 +1,364 @@
+/* ---padrão--- */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: cocoThin;
+    src: url('../fonts/Cocogoose-Pro-Thin-trial.ttf');
+}
+
+@font-face {
+    font-family: cocoRegular;
+    src: url('../fonts/Cocogoose-Pro-Light-trial.ttf');
+}
+
+@font-face {
+    font-family: cocoDark;
+    src: url('../fonts/Cocogoose-Pro-Darkmode-trial.ttf');
+}
+
+:root {
+    --cor-fundo: #E5F4E7;
+    --cor-contraste: #618b68;
+    --cor-fundo-escura: #b6c4b8;
+    --cor-pastel: #C8E0D2;
+    --cor-verde-cinza: #8AAE92;
+
+    --tamanho-card-width: 20vw;
+    --tamanho-card-height: 20vw;
+    --espaco-entre-cards: 2vw;
+    --max-largura-container: 90vw;
+    --max-largura-cartao: 400px;
+    --max-altura-cartao: 400px;
+}
+
+/* ---padrão--- */
+
+body {
+    background-color: var(--cor-fundo);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+
+}
+
+header {
+    background-color: var(--cor-contraste);
+    width: 100%;
+    padding: 25px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--cor-fundo);
+    font-family: cocoDark;
+}
+
+main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+    justify-content: center;
+}
+
+main .card {
+    background-color: var(--cor-contraste);
+    padding: 30px 15px;
+    border-radius: 20px;
+    font-family: cocoRegular;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+main .card .form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    justify-content: space-around;
+    gap: 15px;
+    font-size: 14px;
+}
+
+main .card h3 {
+    font-size: 16px;
+}
+
+main .card .form .name-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 9px;
+}
+
+main .card .form .name-div .group {
+    width: 100%;
+    display: flex;
+
+}
+
+main .card .form .name-div input {
+    width: 80%;
+}
+
+/* ---input--- */
+
+.group {
+    position: relative;
+}
+
+.input {
+    font-size: 12px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 150px;
+    border: none;
+    border-bottom: 1px solid var(--cor-fundo);
+    background: transparent;
+    color: whitesmoke;
+}
+
+.input:focus {
+    outline: none;
+}
+
+label {
+    color: var(--cor-fundo);
+    font-size: 11px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 1px;
+    top: 15px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
+.input:focus~label,
+.input:valid~label {
+    top: -10px;
+    font-size: 11px;
+    color: var(--cor-fundo-escura);
+}
+
+.bar {
+    position: relative;
+    display: block;
+    width: auto;
+}
+
+.bar:before,
+.bar:after {
+    content: '';
+    height: 2px;
+    width: 0;
+    bottom: 1px;
+    position: absolute;
+    background: var(--cor-fundo-escura);
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
+.bar:before {
+    left: 50%;
+}
+
+.bar:after {
+    right: 50%;
+}
+
+.input:focus~.bar:before,
+.input:focus~.bar:after {
+    width: 50%;
+}
+
+.highlight {
+    position: absolute;
+    height: 60%;
+    width: 100px;
+    top: 25%;
+    left: 0;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.input:focus~.highlight {
+    animation: inputHighlighter 0.3s ease;
+}
+
+@keyframes inputHighlighter {
+    from {
+        background: var(--cor-fundo-escura);
+    }
+
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+
+/* ---input--- */
+
+/* ---button-google--- */
+.google-button {
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.google-button  {
+    --primary-color: #111;
+    position: relative;
+    display: flex;
+    font-weight: 600;
+    font-size: 20px;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.google-button p {
+    margin: 0;
+    position: relative;
+    font-size: 15px;
+    color: var(--primary-color);
+    padding-left: 28px;
+    transition: color 0.3s ease-out;
+}
+
+/* Linha inferior */
+.google-button::after {
+    position: absolute;
+    content: "";
+    width: 0;
+    left: 0;
+    bottom: -7px;
+    background: var(--cor-fundo);
+    height: 2px;
+    transition: 0.3s ease-out;
+}
+
+/* Ícone preto no estado base */
+.google-button p::after {
+    content: "\f3f0";
+    font-family: "bootstrap-icons";
+    font-size: 20px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--primary-color);
+    transition: color 0.3s ease-out;
+}
+
+/* Camada vermelha animada */
+.google-button p::before {
+    content: "\f3f0  Entrar com o Google";
+    font-family: "bootstrap-icons", sans-serif;
+    position: absolute;
+    width: 0%;
+    inset: 0;
+    color: var(--cor-fundo);
+    overflow: hidden;
+    white-space: nowrap;
+    transition: width 0.3s ease-out;
+}
+
+.google-button:hover::after {
+    width: 100%;
+}
+
+.google-button:hover p::before {
+    width: 100%;
+}
+
+.google-button:hover p {
+    color: transparent;
+}
+
+.google-button:hover p::after {
+    color: transparent;
+}
+
+.google-button:hover svg {
+    transform: translateX(4px);
+    color: var(--cor-fundo);
+}
+
+.google-button svg {
+    color: var(--primary-color);
+    transition: 0.2s;
+    position: relative;
+    width: 15px;
+    transition-delay: 0.2s;
+}
+
+/* ---button-google--- */
+
+main .card .link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: var(--cor-fundo);
+    gap: 5px;
+    font-size: 13px;
+}
+
+main .card .link a {
+    text-decoration: underline dotted;
+    color: var(--cor-fundo-escura);
+}
+
+
+/* ---buttonCadastro--- */
+
+.button-cad {
+    /* Variables */
+    --button_radius: 0.75em;
+    --button_outline_color: #000000;
+    font-size: 17px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    border-radius: var(--button_radius);
+    background: var(--button_outline_color);
+}
+
+.button_top {
+    display: block;
+    box-sizing: border-box;
+    border: 2px solid var(--button_outline_color);
+    border-radius: var(--button_radius);
+    padding: 0.75em 1.5em;
+    background: var(--cor-pastel);
+    color: var(--button_outline_color);
+    transform: translateY(-0.2em);
+    transition: transform 0.1s ease;
+}
+
+.button-cad:hover .button_top {
+    /* Pull the button upwards when hovered */
+    transform: translateY(-0.33em);
+}
+
+.button-cad:active .button_top {
+    /* Push the button downwards when pressed */
+    transform: translateY(0);
+}
+
+/* ---buttonCadastro--- */

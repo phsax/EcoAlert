@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">Detalhes da Notícia</title>
+    <!-- <link rel="stylesheet" href="../home/home.css">  -->
+    <link rel="stylesheet" href="detalhedenuncia.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+</head>
+
+<body>
+    <header>
+        <h1>EcoAlert</h1>
+        <div class="perfil">
+            <p></p>
+            <i class="bi bi-person-circle"></i>
+        </div>
+    </header>
+    <main>
+        <a href="../../home/home.html">
+            <div class="back-button">
+                <button class="Btn">
+                    <p>Voltar</p>
+                    <i class="bi bi-arrow-left-short"></i>
+                </button>
+            </div>
+        </a>
+
+        <section id="noticia-detalhes" class="card">
+            <h2 id="noticia-titulo">Carregando...</h2>
+            <p id="noticia-autor"></p>
+            <p id="noticia-data"></p>
+
+            <img id="noticia-imagem" alt="Imagem da notícia"
+                style="width: 100%; height: auto; margin-top: 20px; display: none;">
+
+            <p id="noticia-descricao-curta" style="margin-top: 15px; font-style: italic;"></p>
+
+            <div id="noticia-conteudo-principal">
+            </div>
+
+            <!-- <section id="comentarios-section"
+                style="display:none; margin-top: 30px; border-top: 1px solid #ccc; padding-top: 20px;">
+                <h3 style="color: var(--cor-fundo); margin-bottom: 15px; text-align: center;">Comentários</h3>
+                <div id="comentarios-lista">
+                </div>
+            </section> -->
+        </section>
+
+    </main>
+
+    <script src="detalhedenuncia.js"></script>
+</body>
+
+</html>

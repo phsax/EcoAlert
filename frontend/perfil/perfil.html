@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoAlert - Editar Perfil</title>
+    <link rel="stylesheet" href="../novadenuncia/novadenuncia.css"> <link rel="stylesheet" href="perfil.css"> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+</head>
+
+<body>
+    <header>
+        <h1>EcoAlert</h1>
+        <div class="perfil">
+            <p></p>
+            <i class="bi bi-person-circle"></i>
+        </div>
+    </header>
+    <main>
+        <a href="../home/home.html">
+            <div class="back-button">
+                <button class="Btn">
+                    <p>Voltar</p>
+                    <i class="bi bi-arrow-left-short"></i>
+                </button>
+            </div>
+        </a>
+
+        <h2 id="page-title">Editar Perfil</h2>
+        <div class="card">
+            <form id="perfil-form" class="form">
+                
+                <h3>Dados Pessoais</h3>
+
+                <div class="textInputWrapper">
+                    <input id="nome" placeholder="Nome" type="text" class="textInput" required>
+                </div>
+                <div class="textInputWrapper">
+                    <input id="sobrenome" placeholder="Sobrenome" type="text" class="textInput" required>
+                </div>
+                <div class="textInputWrapper">
+                    <input id="email" placeholder="E-mail" type="email" class="textInput" required>
+                </div>
+                
+                <hr style="margin: 20px 0; border-color: var(--cor-fundo-escura);">
+
+                <h3>Alterar Senha</h3>
+                <p style="text-align: center; font-size: 0.9em; margin-bottom: 10px; color: #000;">Preencha apenas se quiser alterar sua senha.</p>
+
+                <div class="textInputWrapper">
+                    <input id="senha_atual" placeholder="Senha Atual (Necessária para alteração)" type="password" class="textInput">
+                </div>
+                <div class="textInputWrapper">
+                    <input id="nova_senha" placeholder="Nova Senha" type="password" class="textInput">
+                </div>
+                <div class="textInputWrapper">
+                    <input id="confirma_nova_senha" placeholder="Confirmar Nova Senha" type="password" class="textInput">
+                </div>
+
+                <button type="submit" class="button-post" style="margin-top: 20px;"> 
+                    <span class="button_top">
+                        Salvar Alterações
+                    </span>
+                </button>
+            </form>
+        </div>
+    </main>
+    <script src="perfil.js"></script>
+</body>
+
+</html>

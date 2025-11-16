@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoAlert</title>
+    <link rel="stylesheet" href="novadenuncia.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+</head>
+
+<body>
+    <header>
+        <h1>EcoAlert</h1>
+        <div class="perfil">
+            <p></p>
+            <i class="bi bi-person-circle"></i>
+        </div>
+    </header>
+    <main>
+        <a href="../home/home.html">
+            <div class="back-button">
+                <button class="Btn">
+                    <p>Voltar</p>
+                    <i class="bi bi-arrow-left-short"></i>
+                </button>
+            </div>
+        </a>
+
+        <h2 id="page-title">Nova denúncia</h2>
+        <div class="card">
+            <div class="form">
+                <div class="textInputWrapper titulo">
+                    <input id="titulo" placeholder="Insira aqui o título" type="text" class="textInput">
+                </div>
+                <div class="textInputWrapper descricao">
+                    <textarea id="descricao" placeholder="Descreva o que está acontecendo..."
+                        class="textInput"></textarea>
+                </div>
+
+                <form class="file-upload-form">
+                    <label for="imagem" class="file-upload-label">
+                        <div class="file-upload-design">
+                            <svg viewBox="0 0 640 512" height="1em">
+                                <path
+                                    d="M144 480C64.5 480 0 415.5 0 336c0-62.8 40.2-116.2 96.2-135.9c-.1-2.7-.2-5.4-.2-8.1c0-88.4 71.6-160 160-160c59.3 0 111 32.2 138.7 80.2c9.4-1.7 19.2-2.2 29.2-2.2c77.3 0 139.9 61.9 140.4 139C610.2 368.8 559.9 417.3 502.3 431c.4 2.1 .7 4.1 .7 6c0 26.5-21.5 48-48 48H144z" />
+                            </svg>
+                            <p>Arraste e solte ou clique para selecionar uma imagem</p>
+                        </div>
+                        <input id="imagem" type="file" accept="image/*">
+                    </label>
+                </form>
+
+                <div id="noticia-fields" style="width: 100%;">
+                    <h3>Conteúdo Adicional (Link ou Texto)</h3>
+
+                    <div class="tipo-conteudo-selector">
+                        <label>Tipo de Conteúdo:</label>
+
+                        <div class="uiverse-pixel-radio-group">
+                            <label class="uiverse-pixel-radio">
+                                <input type="radio" id="type-text" name="content-type" value="texto" />
+                                <label for="type-text" class="label-text">Conteúdo Próprio (Texto)</label>
+                            </label>
+                            <label class="uiverse-pixel-radio">
+                                <input type="radio" id="type-link" name="content-type" value="link" checked>
+                                <label for="type-link" class="label-text">Link Externo</label>
+                            </label>
+
+                        </div>
+
+                    </div>
+
+                    <div class="textInputWrapper link-input">
+                        <input id="conteudo-link" placeholder="URL do conteúdo (Ex: https://...)" type="url"
+                            class="textInput">
+                    </div>
+
+                    <div class="textInputWrapper texto-input" style="display: none;">
+                        <textarea id="conteudo-texto" placeholder="Cole ou digite o texto completo aqui..."
+                            class="textInput"></textarea>
+                    </div>
+                </div>
+
+                <div id="denuncia-fields" style="display:none !important;">
+                    <div style="display:none !important; "class="map-container">
+                        <h4>Localização</h4>
+                        <p>Se for Denúncia, o mapa será carregado aqui.</p>
+                    </div>
+                </div>
+
+            </div>
+            <button onclick="publishContent(event)" class="button-post"> <span id="publish-text" class="button_top">
+                    Publicar Denúncia </span>
+            </button>
+        </div>
+    </main>
+    <script src="novadenuncia.js"></script>
+</body>
+
+</html>
